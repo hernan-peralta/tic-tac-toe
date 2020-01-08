@@ -1,0 +1,51 @@
+h1{
+  text-align: center;
+  font-family: monospace;
+}
+
+.panel{
+  display: flex;
+  font-family: monospace;
+}
+
+.left{
+  text-align: left;
+}
+
+.center{
+  margin: 0 auto;
+}
+
+.right {
+  float: right;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  border: 3px solid black;
+  height: 3em;
+  width: 3em;
+  text-align: center;
+  font-size: xx-large;
+  font-family: sans-serif;
+}
+
+#sq0, #sq1, #sq2{
+  border-top: 1px solid white;
+}
+
+#sq0, #sq3, #sq6{
+  border-left: 1px solid white;
+}
+
+#sq2, #sq5, #sq8{
+  border-right: 1px solid white;
+}
+
+#sq6, #sq7, #sq8{
+  border-bottom: 1px solid white;
+}

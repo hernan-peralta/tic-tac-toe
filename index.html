@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tic Tac Toe</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
+</head>
+
+<body>
+
+    <h1>Tic Tac Toe</h1>
+
+    <div class="panel">
+        <div class="left">Player 1 name:
+            <input type="text" id="name1">
+            <div id="token1">Player 1 token:
+                <input type="radio" class="input-radio" name="token" value="X">"X"
+                <input type="radio" class="input-radio" name="token" value="O">"O"
+            </div>
+        </div>
+
+        <div class="center">
+            <button id="new-game">New Game</button>
+            <p id="result"></p>
+        </div>
+
+        <div class="right">Player 2 name:
+            <input type="text" id="name2">
+        </div>
+    </div>
+
+
+    <table class="container">
+        <tr>
+            <td class="square" id="sq0"></td>
+            <td class="square" id="sq1"></td>
+            <td class="square" id="sq2"></td>
+        </tr>
+        <tr>
+            <td class="square" id="sq3"></td>
+            <td class="square" id="sq4"></td>
+            <td class="square" id="sq5"></td>
+        </tr>
+        <tr>
+            <td class="square" id="sq6"></td>
+            <td class="square" id="sq7"></td>
+            <td class="square" id="sq8"></td>
+        </tr>
+    </table>
+
+    
+    <script src='src/main.js'></script>
+</body>
+</html>
