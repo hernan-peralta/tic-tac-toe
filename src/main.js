@@ -24,6 +24,12 @@ const Gameboard = (()=>{
         Game.lastTurn = 0;
     };
 
+    const render = () => {
+        for (let i = 0; i < Gameboard.gameboard.length; i++) {
+            document.querySelector(`#sq${[i]}`).innerHTML = Gameboard.gameboard[i];        
+        }
+    };
+
 
     const isThereAWinner = () => {
         if (gameboard[0] === gameboard[1] && gameboard[1] === gameboard[2] && gameboard[0] != '') {
@@ -58,7 +64,7 @@ const Gameboard = (()=>{
         }
     }
 
-    return {assign, gameboard, reset, isThereAWinner};
+    return {assign, gameboard, render, reset, isThereAWinner};
 })();
 
 
@@ -94,7 +100,7 @@ const Game = (() => {
     const play = (squareID) => {
         if (!Gameboard.isThereAWinner() && isValid(squareID)){
             Gameboard.assign(squareID, Game.players[Game.lastTurn].token);
-            render();
+            Gameboard.render();
             nextTurn();
         }
         if (Gameboard.isThereAWinner()){
@@ -105,14 +111,6 @@ const Game = (() => {
 
     return {createPlayers, play, lastTurn}
 })();
-
-
-//quiza deberia ir dentro de Gameboard y usarlo como Gameboard.render
-function render() {
-    for (let i = 0; i < Gameboard.gameboard.length; i++) {
-        document.querySelector(`#sq${[i]}`).innerHTML = Gameboard.gameboard[i];        
-    }
-}
 
 
 $container.onclick = function(event){
