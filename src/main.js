@@ -5,6 +5,7 @@ const $inputRadio = document.querySelectorAll('.input-radio');
 let $token1;
 let $token2;
 const $newGame = document.querySelector('#new-game');
+const $result = document.querySelector('#result');
 
 
 const Gameboard = (()=>{
@@ -50,7 +51,7 @@ const Gameboard = (()=>{
             return true;
         }
         else if (gameboard.indexOf('') === -1){
-            document.querySelector('#result').innerHTML = 'Draw!';
+            $result.innerHTML = 'Draw!';
         }
         else{
             return false;
@@ -98,7 +99,7 @@ const Game = (() => {
         }
         if (Gameboard.isThereAWinner()){
             nextTurn();//this is needed to get the correct turn, otherwise the player 2 win is not recognized
-            document.querySelector('#result').innerHTML = `The winner is ${Game.players[Game.lastTurn].name}!`;
+            $result.innerHTML = `The winner is ${Game.players[Game.lastTurn].name}!`;
         }
     };
 
@@ -134,6 +135,6 @@ $newGame.onclick = function () {
         $token2 = 'X';
     }
     Gameboard.reset();
-    document.querySelector('#result').innerHTML = '';
+    $result.innerHTML = '';
     Game.createPlayers();
 }
