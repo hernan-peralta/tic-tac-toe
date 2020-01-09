@@ -5,3 +5,4 @@ A project for [TOP](https://www.theodinproject.com/courses/javascript/lessons/ti
 
 ## To Do:
 - Create a simple AI to play against the computer
+- Improve style
