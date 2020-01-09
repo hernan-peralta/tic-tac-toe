@@ -6,6 +6,7 @@ let $token1;
 let $token2;
 const $newGame = document.querySelector('#new-game');
 const $result = document.querySelector('#result');
+let containerBlocked = true;
 
 
 const Gameboard = (()=>{
@@ -106,6 +107,7 @@ const Game = (() => {
         if (Gameboard.isThereAWinner()){
             nextTurn();//this is needed to get the correct turn, otherwise the player 2 win is not recognized
             $result.innerHTML = `The winner is ${Game.players[Game.lastTurn].name}!`;
+            containerBlocked = true;
         }
     };
 
@@ -116,9 +118,11 @@ const Game = (() => {
 $container.onclick = function(event){
     const $element = event.target;
 
-    if ($element.classList.contains('square')){
-        let squareID = ($element.id[2]);
-        Game.play(squareID);
+    if (containerBlocked === false){
+        if ($element.classList.contains('square')){
+            let squareID = ($element.id[2]);
+            Game.play(squareID);
+        }
     }
 }
 
@@ -135,4 +139,5 @@ $newGame.onclick = function () {
     Gameboard.reset();
     $result.innerHTML = '';
     Game.createPlayers();
+    containerBlocked = false;
 }
