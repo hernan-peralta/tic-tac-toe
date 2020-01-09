@@ -7,6 +7,19 @@ context ('Tic Tac Toe', () => {
     });
 
 
+    function startGame() { it('starts the game', ()=>{
+        cy.get('#new-game').click()
+    }); }
+
+
+    function checkCells(message, cells) {
+        it(`tests ${message}`, ()=>{
+            playerOnePlay(cells);
+            cy.wait(1000);
+        });
+    }
+
+
     describe('sets up the game', ()=>{
 
         it('check if there is a table with 9 cells', ()=>{
@@ -30,95 +43,38 @@ context ('Tic Tac Toe', () => {
 
     describe('test the game', ()=>{
 
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-    
-        it('tests first row', ( )=>{
-            playerOnePlay([0, 1, 2]);
-            cy.wait(1000);
-        });
-   
+        startGame();
+        checkCells('first row', [0, 1, 2]);
 
-
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-
-        it('tests second row', ( )=>{
-            playerOnePlay([3, 4, 5]);
-            cy.wait(1000);
-        });
-
+        
+        startGame();
+        checkCells('second row', [3, 4, 5]);
     
 
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-
-        it('tests third row', ( )=>{
-            playerOnePlay([6, 7, 8]);
-            cy.wait(1000);
-        });
+        startGame();
+        checkCells('third row', [6, 7, 8]);
 
 
-
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-
-        it('tests first column', ( )=>{
-            playerOnePlay([0, 3, 6]);
-            cy.wait(1000);
-        });
+        startGame();
+        checkCells('first column', [0, 3, 6]);
 
 
+        startGame();
+        checkCells('second column', [1, 4, 7]);
 
 
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-
-        it('tests second column', ( )=>{
-            playerOnePlay([1, 4, 7]);
-            cy.wait(1000);
-        });
+        startGame();
+        checkCells('third column', [2, 5, 8]);
     
 
+        startGame();
+        checkCells('left-right diagonal', [0, 4, 8]);
+  
 
-
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-
-        it('tests third column', ( )=>{
-            playerOnePlay([2, 5, 8]);
-            cy.wait(1000);
-        });
-    
-
-
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-
-        it('tests left-right diagonal', ( )=>{
-            playerOnePlay([0, 4, 8]);
-            cy.wait(1000);
-        });
-
-
-    
-        it('starts the game', ()=>{
-            cy.get('#new-game').click()
-        });
-
-        it('tests right-left diagonal', ( )=>{
-            playerOnePlay([2, 4, 6]);
-        });
+        startGame();
+        checkCells('right-left diagonal', [2, 4, 6]);
     });    
 })
-
 
 
 
