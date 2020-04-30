@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hernan-peralta/tic-tac-toe#readme",
   "devDependencies": {
-    "cypress": "^3.8.1"
+    "cypress": "^3.8.1",
+    "eslint": "^6.8.0"
   }
 }
